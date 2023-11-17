@@ -115,7 +115,7 @@ function DragonWidget(props) {
     contentWidth={width}
     source={source}
     /> 
- 
+ g
 }
 
 export default DragonWidget;
