@@ -1,0 +1,7 @@
+.inTextArea {
+    margin: 10px;
+    border-radius: 13px;
+    font-family: Roboto, Verdana, Tahoma, sans;
+    font-size: 100%;
+    outline: 0;
+}

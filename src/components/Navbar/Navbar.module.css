@@ -1,0 +1,49 @@
+.Nav {
+    grid-area: n;
+    background-color: white;
+    border-radius: 0 30px 30px 0;
+    box-shadow: 0 0 2px black;
+    width: 250px;
+    height: 100%;
+    position: sticky;
+}
+
+.Nav Button {
+    grid-area: b;
+    border: none;
+    outline: none;
+    display: inline-block;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: Roboto, Verdana, Tahoma, sans;
+    padding: 5px 15px;
+    border-radius: 100px;
+    color: black;
+    margin: 5px;
+    background-color: white;
+    height: 50px;
+    width: 93%;
+
+}
+
+
+.Nav Button:hover {
+    color: black;
+    transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    background: aliceblue;
+}
+
+.Nav.dark-theme {
+    grid-area: n;
+    background-color: rgb(24, 26, 27);
+    border-radius: 0 30px 30px 0;
+    box-shadow: 0 0 2px white;
+    width: 250px;
+    height: 100%;
+}
+
+

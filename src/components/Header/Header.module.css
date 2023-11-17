@@ -1,0 +1,21 @@
+.header {
+    position: fixed;
+    width: 100%;
+    grid-area: h;
+    background-color: white;
+    box-shadow: 0 0 2px black;
+    display: inline-block;
+}
+
+.header img {
+    width: 17%;
+    height: 49px;
+    padding-left: 80px;
+}
+
+.header.dark-theme {
+    grid-area: h;
+    background-color: rgb(24, 26, 27);
+    box-shadow: 0 0 2px white;
+    display: inline-block;
+}
