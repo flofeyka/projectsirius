@@ -6,7 +6,9 @@ function CycleInput(props){
     function onChangerCycle() {
         props.CycleChange(CycleRef.current.value)
     }
-    return <textarea className={styles.inTextArea} onChange={onChangerCycle} value={props.Cycle} ref={CycleRef}/>
+    return <a className={styles.Blockly}>
+     <textarea className={styles.inTextArea} onChange={onChangerCycle} value={props.Cycle} ref={CycleRef}/>
+     </a>
 }
 
 export default CycleInput;

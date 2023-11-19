@@ -19,3 +19,35 @@
     box-shadow: 0 0 2px white;
     display: inline-block;
 }
+
+.loging {
+    position: absolute;
+    margin-left: 800px;
+}
+
+.logger {
+    border: none;
+    outline: none;
+    display: inline-block;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: Roboto, Verdana, Tahoma, sans;
+    padding: 5px 15px;
+    border-radius: 100px;
+    color: black;
+    margin: 5px;
+    background-color: white;
+    height: 40px;
+
+}
+
+
+.logger:hover {
+    color: black;
+    transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    background: aliceblue;
+}

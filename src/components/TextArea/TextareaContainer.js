@@ -1,14 +1,9 @@
 import {connect} from "react-redux"
 import TextArea from "./Textarea"
-import {ActionChange, TimerChange, CycleChange} from "../../redux/TextAreaReducer"
+import {ActionChange, TimerChange, CycleChange, ActivateChanges} from "../../redux/TextAreaReducer"
 import axios from "axios"
 
-function TextAreaGetTheServerAPI() {
-    axios.get().then(Response => {
 
-    })
-    return <TextArea/>
-}
 
 let mapStateToProps = (state) => ({
     TextAreaPage: state.TextAreaPage,
@@ -17,18 +12,6 @@ let mapStateToProps = (state) => ({
     Cycle: state.TextAreaPage.Cycle
 })
 
-let mapDispatchToProps = (dispatch) => ({
-    ActionChange: (string) => {
-        dispatch(ActionChange(string))
-    },
-    TimerChange: (integer) => {
-        dispatch(TimerChange(integer))
-    },
-    CycleChange: (integer) => {
-        dispatch(CycleChange(integer))
-    }
-})
-
-let TextareaContainer = connect(mapStateToProps, mapDispatchToProps)(TextArea)
+let TextareaContainer = connect(mapStateToProps, {ActionChange, TimerChange, CycleChange, ActivateChanges})(TextArea)
 
 export default TextareaContainer;

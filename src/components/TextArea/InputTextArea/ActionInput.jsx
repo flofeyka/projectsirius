@@ -8,7 +8,9 @@ function ActionInput(props){
         props.ActionChange(ActionRef.current.value)
     }
 
-    return <textarea className={styles.inTextArea} onChange={onChangerAction} value={props.Action} ref={ActionRef}/>
+    return <a className={styles.Blockly}>
+    <textarea className={styles.inTextArea} onChange={onChangerAction} value={props.Action} ref={ActionRef}/>
+    </a>
 }
 
 export default ActionInput;

@@ -1,8 +1,9 @@
-.TextArea {
-    margin: 20px;
+.input {
+    border-radius: 10px;
+
 }
 
-.activate {
+.RegisterInside {
     grid-area: b;
     border: none;
     outline: none;
@@ -22,7 +23,7 @@
 }
 
 
-.activate:hover {
+.RegisterInside:hover {
     color: black;
     transition: all .3s linear;
     -webkit-transition: all .3s linear;

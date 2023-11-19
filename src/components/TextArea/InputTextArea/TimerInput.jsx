@@ -8,7 +8,9 @@ function TimerInput(props){
         props.TimerChange(TimerRef.current.value)
     }
 
-    return <textarea className={styles.inTextArea} onChange={onChangerTimer} value={props.Timer} ref={TimerRef}/>
+    return <a className={styles.Blockly}> 
+    <textarea className={styles.inTextArea} onChange={onChangerTimer} value={props.Timer} ref={TimerRef}/>
+    </a>
 }
 
 export default TimerInput;

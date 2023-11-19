@@ -1,8 +1,16 @@
+.Blockly {
+    
+    margin: 20px;
+}
+
 .inTextArea {
-    margin: 10px;
+    margin: 0 auto;
+    margin-right: 10px;
     border-radius: 13px;
     font-family: Roboto, Verdana, Tahoma, sans;
     font-size: 100%;
     outline: 0;
-    vertical-align: center;
+    vertical-align: middle;
+    height: 25px;
+    font-size: 20px;
 }

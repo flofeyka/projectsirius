@@ -1,8 +1,9 @@
-.TextArea {
-    margin: 20px;
+.input {
+    border-radius: 10px;
+    padding-right: 20px;
 }
 
-.activate {
+.LoginInside {
     grid-area: b;
     border: none;
     outline: none;
@@ -15,14 +16,14 @@
     padding: 5px 15px;
     border-radius: 100px;
     color: black;
-    margin: 5px;
+    padding-right: 20px;
     background-color: white;
     height: 50px;
 
 }
 
 
-.activate:hover {
+.LoginInside:hover {
     color: black;
     transition: all .3s linear;
     -webkit-transition: all .3s linear;

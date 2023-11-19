@@ -8,6 +8,14 @@ function Header(props) {
         <NavLink to="/">
         <img src={sirius}/>
         </NavLink>
+        <a className={styles.loging}>
+            <NavLink to="/login">
+                <button className={styles.logger}>Войти</button>
+            </NavLink>
+            <NavLink to="/register">
+                <button className={styles.logger}>Зарегистрироваться</button>
+            </NavLink>
+        </a>
         </header>
 }
 

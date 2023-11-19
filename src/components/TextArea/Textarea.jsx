@@ -17,7 +17,9 @@ function TextArea(props) {
             Выполнить количество раз: <CycleInput Cycle={props.Cycle} CycleChange={props.CycleChange}/>
         </div>
         <div>
-            
+            <button className={styles.activate}>
+                Выполнить
+            </button>
         </div>
         </div>
     </>
