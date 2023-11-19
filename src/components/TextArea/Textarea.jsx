@@ -8,6 +8,10 @@ function TextArea(props) {
         props.ChangeText(ChangeTextRef.current.value)
     }
 
+    function onClicker(){
+        props.isToggle(true)
+    }
+
     return <>
         <div className={styles.TextArea}>
         <div>
