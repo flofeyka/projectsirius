@@ -14,6 +14,9 @@ function Navbar() {
         <NavLink to="/dragonwidget">
           <button className={styles.Button}>Dragon Widget</button>
         </NavLink>
+        <NavLink to="/node">
+          <button className={styles.Button}>Режим нод</button>
+        </NavLink>
         </nav>
 
     )

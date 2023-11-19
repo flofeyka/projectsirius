@@ -1,30 +1,23 @@
 import React, {createRef} from 'react'
 import styles from './textarea.module.css'
+import CycleInput from './InputTextArea/CycleInput'
+import TimerInput from './InputTextArea/TimerInput'
+import ActionInput from './InputTextArea/ActionInput'
 
 function TextArea(props) {
-    let ChangeTextRef = React.createRef()
-
-    function onChanger() {
-        props.ChangeText(ChangeTextRef.current.value)
-    }
-
-    function onClicker(){
-        props.isToggle(true)
-    }
-
     return <>
         <div className={styles.TextArea}>
         <div>
-            <textarea className={styles.inTextArea} onChange={onChanger} value={props.text} ref={ChangeTextRef}/>
+            Действие: <ActionInput Action={props.Action} ActionChange={props.ActionChange}/>
         </div>
         <div>
-            <textarea className={styles.inTextArea} onChange={onChanger} value={props.text} ref={ChangeTextRef}/>
+            Время: <TimerInput Timer={props.Timer} TimerChange={props.TimerChange}/>
         </div>
         <div>
-            <textarea className={styles.inTextArea} onChange={onChanger} value={props.text} ref={ChangeTextRef}/>
+            Выполнить количество раз: <CycleInput Cycle={props.Cycle} CycleChange={props.CycleChange}/>
         </div>
         <div>
-            <textarea className={styles.inTextArea} onChange={onChanger} value={props.text} ref={ChangeTextRef}/>
+            
         </div>
         </div>
     </>
