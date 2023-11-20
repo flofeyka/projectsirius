@@ -26,7 +26,7 @@ function Register(props){
             props.ChangeRepeatPassword(ref.current.value)
         }
     }
-    return <>
+    return <div className={styles.inputRegister}>
     <div>
         <textarea className={styles.input} placeholder='Логин' value={props.inputLogin} onChange={Changes.changeLogin} ref={Refs.LoginRef}/>
     </div>
@@ -43,7 +43,7 @@ function Register(props){
         <button className={styles.RegisterInside} onClick={props.InputRegister}>Зарегистрироваться</button>
     </div>
 
-    </>
+    </div>
 }
 
 export default Register;

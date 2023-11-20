@@ -15,6 +15,15 @@ let InitialState = {
 function RegisterReducer(state=InitialState, action){
     switch(action.type) {
         case RegisterCreator:
+        //     return {...state,  isLogged: {
+        //         if(inputPassword = stateinputRepeatPassword) {
+        //             return {...state, isLogged = true}
+        //         }
+        //         else {
+        //             return {...state}
+        //         }
+        //     }
+        // }
             return {...state, isLogged: true}
         case ChangeInputLoginCreator:
             return {...state, inputLogin: action.login}

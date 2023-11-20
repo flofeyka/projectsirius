@@ -1,6 +1,10 @@
 .input {
     border-radius: 10px;
+}
 
+.inputRegister {
+    margin-right: 0 auto;
+    margin-left: 0 auto;
 }
 
 .RegisterInside {
