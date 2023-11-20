@@ -26,14 +26,13 @@ class RequestHandler(BaseHTTPRequestHandler):
         parsed_path = urlparse(self.path)
         query_params = parse_qs(parsed_path.query)
 
-        def do_GET(self):
-            client_ip = self.client_address[0]
-            if client_ip not in allowed_ips:
-                self.send_response(403)
-                self.send_header('Content-type', 'application/json')
-                self.end_headers()
-                self.wfile.write(json.dumps({'error': 'Доступ запрещен'}).encode())
-                return
+        client_ip = self.client_address[0]
+        if client_ip not in allowed_ips:
+            self.send_response(403)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps({'error': 'Доступ запрещен'}).encode())
+            return
 
         if 'camera_id' in query_params and 'is_object_detected' in query_params:
             camera_id = query_params['camera_id'][0]
