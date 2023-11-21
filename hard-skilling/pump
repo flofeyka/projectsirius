@@ -1,0 +1,29 @@
+import serial
+import time
+from serial.tools import list_ports
+
+ports = list_ports.comports()
+
+for port in ports:
+    print(port.device)  # Выводит имя порта
+    portname = port.device
+    print(port.description)  # Выводит описание устройства
+    print(port.manufacturer)  # Выводит производителя устройства
+    print(port.serial_number)  # Выводит серийный номер устройства
+    print()
+
+print(portname)
+
+# Открываем последовательный порт
+ser = serial.Serial(portname, 115200)  # Замените 'COM3' на соответствующий порт и укажите правильную скорость передачи данных
+time.sleep(15)
+
+# Отправляем текстовое сообщение
+message = "echo(\"GSP\")\n"
+aa=25
+message = f"echo(\"{aa}\")\n"
+print (message)
+ser.write(message.encode())  # Кодируем сообщение в байты и отправляем его
+
+# Закрываем последовательный порт
+ser.close()
