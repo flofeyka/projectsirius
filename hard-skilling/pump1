@@ -1,0 +1,57 @@
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from urllib.parse import parse_qs
+import json
+import serial
+import time
+from serial.tools import list_ports
+
+ports = list_ports.comports()
+
+for port in ports:
+    print(port.device)  # Выводит имя порта
+    portname = port.device
+    print(port.description)  # Выводит описание устройства
+    print(port.manufacturer)  # Выводит производителя устройства
+    print(port.serial_number)  # Выводит серийный номер устройства
+    print()
+
+print(portname)
+
+# Открываем последовательный порт
+ser = serial.Serial(portname, 115200)  # Замените 'COM3' на соответствующий порт и укажите правильную скорость передачи данных
+time.sleep(15)
+class DeviceStatusHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html')
+        self.end_headers()
+        self.wfile.write(bytes(self._generate_form(), 'utf-8'))
+
+        # Extract the query parameters from the URL
+        query_params = parse_qs(self.path[2:])
+        print(query_params)
+        message = f"echo(\"{query_params}\")\n"
+        ser.write(message.encode())  # Кодируем сообщение в байты и отправляем его
+
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html')
+        self.end_headers()
+        #self.wfile.write(bytes(status, 'utf-8'))
+    def _generate_form(self):
+        return '''
+          <form method="GET">
+            <label for="pump_turn">pump_turn(from 1 to 360):</label>
+            <input type="text" id="pump_turn" name="pump_turn">
+            <br>
+            <input type="submit" value="Check">
+        </form>
+        '''
+
+def run_server():
+    server_address = ('', 8000)
+    httpd = HTTPServer(server_address, DeviceStatusHandler)
+    print('Сервер запущен на порту 8000...')
+    httpd.serve_forever()
+
+if __name__ == '__main__':
+    run_server()
