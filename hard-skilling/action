@@ -1,0 +1,63 @@
+from http.server import BaseHTTPRequestHandler, HTTPServer #Импортируются необходимые модули
+from urllib.parse import parse_qs
+import json
+import serial
+import time
+from serial.tools import list_ports
+
+ports = list_ports.comports()
+
+for port in ports:
+    portname = port.device
+
+# Открываем последовательный порт
+ser = serial.Serial(portname, 115200/2)  # Замените 'COM3' на соответствующий порт и укажите правильную скорость передачи данных
+time.sleep(5)
+class DeviceStatusHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'application/json')
+        self.send_header('Access-Control-Allow-Origin', '*')  # Allow requests from any origin
+        self.send_header('Access-Control-Allow-Methods', 'GET')  # Allow only GET requestsself.send_header('Access-Control-Allow-Headers', 'Content-type')  # Allow only Content-type header
+        self.send_header('Content-type', 'text/html')
+        self.end_headers()
+        self.wfile.write(bytes(self._generate_form(), 'utf-8'))
+        # Extract the query parameters from the URL
+        # Разбираем URL и получаем параметры запроса
+        class MyRequestHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        parsed_url = urlparse(self.path)
+        query_params = parse_qs(parsed_url.query)
+
+        # Получаем значения параметров из словаря query_params
+        action = query_params.get('Action', [''])[0]
+        time = query_params.get('Time', [''])[0]
+        cycle = query_params.get('Cycle', [''])[0]
+        line = query_params.get('Line', [''])[0]
+
+if action == 'rotate':
+    # Ваш код для выполнения действия "rotate" с параметрами time, cycle и line
+    response = 'Выполняется действие "rotate" с параметрами: Time={}, Cycle={}, Line={}'.format(time, cycle, line)
+else:
+    response = 'Неизвестное действие: {}'.format(action)
+
+
+
+    def _generate_form(self):
+        return '''
+          <form method="GET">
+            <label for="commands">Enter commands (separated by ';'):</label>
+            <input type="text" id="commands" name="commands">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        '''
+
+def run_server():
+    server_address = ('localhost', 8000)
+    httpd = HTTPServer(server_address, DeviceStatusHandler)
+    print('Сервер запущен на порту 8000...')
+    httpd.serve_forever()
+
+if __name__ == '__main__':
+    run_server()
