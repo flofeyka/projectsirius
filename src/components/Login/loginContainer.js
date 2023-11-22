@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Login from "./Login"
-import { LoginInput, ChangePassword, ChangeLogin } from '../../../redux/LoginReducer';
+import { LoginInput, ChangePassword, ChangeLogin } from '../../redux/LoginReducer';
 
 function mapStateToProps(state) {
     return {

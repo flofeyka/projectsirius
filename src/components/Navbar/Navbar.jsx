@@ -5,9 +5,6 @@ import { NavLink } from 'react-router-dom';
 function Navbar() {
     return (
         <nav className={styles.Nav}>
-        <NavLink to="/textarea">
-          <button className={styles.Button}>Текстовый режим</button>
-        </NavLink>
         <NavLink to="/table">
           <button className={styles.Button}>Табличный режим</button>
         </NavLink>

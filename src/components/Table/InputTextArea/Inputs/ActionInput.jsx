@@ -4,6 +4,12 @@ import styles from '.././input.module.css'
 function ActionInput(props){
     let ActionRef = React.createRef()
 
+    function onChangeAction() {
+        const selectElement = document.getElementById('fruits');
+        const selectedAction = selectElement.value;
+        props.ActionChange(selectedAction.value)
+      }
+
     function onChangerAction() {
         props.ActionChange(ActionRef.current.value)
     }
