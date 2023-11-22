@@ -2,6 +2,7 @@ import cv2
 import time
 import requests
 import numpy as np
+import json
 
 frame_list = []
 
@@ -27,9 +28,13 @@ while True:
         if np.max(similarity) < 0.65:  # Пороговое значение для определения несовпадения
             diff_count += 1
 
-    # Если текущий кадр не совпадает на 65 процентов с предыдущими двумя, отправляем "FALSE" на сервер
+    # Если текущий кадр не совпадает на 65 процентов с предыдущими двумя, отправляем результаты в формате JSON
     if diff_count > 0:
-        response = requests.get("http://localhost:5000/cam")
-        print(response.text)
+        result = {
+            "status": "FALSE",
+            "message": "Несовпадение обнаружено"
+        }
+        response = requests.post("http://localhost:5000/cam", json=result)
+        print(response.json())
 
-    time.sleep(1)
+    time.sleep(0.5)
