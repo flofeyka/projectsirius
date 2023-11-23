@@ -12,3 +12,15 @@ links.forEach(link => {
   // Добавляем контент в теневой элемент
   shadow.appendChild(content);
 });
+
+// При завершении работы удаляем созданные объекты
+window.addEventListener('beforeunload', () => {
+  links.forEach(link => {
+    const shadow = link.shadowRoot;
+    if (shadow) {
+      const content = shadow.querySelector('span');
+      shadow.removeChild(content);
+      link.detachShadow(shadow);
+    }
+  });
+});
