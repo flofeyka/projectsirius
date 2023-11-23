@@ -26,10 +26,10 @@ class DeviceStatusHandler(BaseHTTPRequestHandler):
         # Extract the query parameters from the URL
         query_params = parse_qs(self.path[2:])
         commands = query_params.get('commands', [''])[0]
-        command_list = commands.split(';')
-        for command in command_list:
-            message = f"{command}\n"
-            ser.write(message.encode())  # Кодируем сообщение в байты и отправляем его
+        #command_list = commands.split(';')
+        #for command in commands:
+        message = f"{commands}\n"
+        ser.write(message.encode())  # Кодируем сообщение в байты и отправляем его
 
     def _generate_form(self):
         return '''
@@ -42,7 +42,7 @@ class DeviceStatusHandler(BaseHTTPRequestHandler):
         '''
 
 def run_server():
-    server_address = ('10.10.201.184', 8000)
+    server_address = ('192.168.197.6', 8000)
     httpd = HTTPServer(server_address, DeviceStatusHandler)
     print('Сервер запущен на порту 8000...')
     httpd.serve_forever()
