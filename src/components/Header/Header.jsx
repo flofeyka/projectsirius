@@ -9,9 +9,21 @@ function Header(props) {
         <img src={sirius}/>
         </NavLink>
         <a className={styles.loging}>
-            <NavLink to="/login">
+            <a className={styles.Nav}>
+        <NavLink to="/">
+          <button className={styles.Button}>Табличный режим</button>
+        </NavLink>
+        <NavLink to="/dragonwidget">
+          <button className={styles.Button}>Dragon Widget</button>
+        </NavLink>
+        <NavLink to="/node">
+          <button className={styles.Button}>Режим нод</button>
+        </NavLink>
+        <NavLink to="/login">
                 <button className={styles.logger}>Войти</button>
             </NavLink>
+        </a>
+
         </a>
         </header>
 }

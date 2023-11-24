@@ -3,15 +3,13 @@ import TableReducer from "./TableReducer";
 import DragonWidgetReducer from "./DragonWidgetReducer";
 import NodeReducer from "./NodeReducer";
 import LoginReducer from "./LoginReducer";
-import RegisterReducer from "./RegisterReducer";
 
 
 let reducers = combineReducers({
     DragonWidgetPage: DragonWidgetReducer,
     TablePage: TableReducer,
     NodePage: NodeReducer,
-    LoginPage: LoginReducer,
-    RegisterPage: RegisterReducer
+    LoginPage: LoginReducer
 })
 
 

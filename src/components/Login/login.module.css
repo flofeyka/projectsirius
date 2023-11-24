@@ -1,13 +1,25 @@
 .input {
+    color: white;
+    display: block;
+    margin: 0 auto;
     border-radius: 10px;
     padding-right: 20px;
+    min-width: 25%;
+    max-width: 25%;
+    height: 45px;
+    max-height: 45px;
+    font-size: 35px;
+    margin-bottom: 5px;
+    vertical-align: middle;
+    background-color: rgb(24, 26, 25);
 }
 
 .LoginInside {
+    display: block;
+    margin: 0 auto;
     grid-area: b;
     border: none;
     outline: none;
-    display: inline-block;
     text-align: left;
     text-decoration: none;
     cursor: pointer;
@@ -15,18 +27,18 @@
     font-family: Roboto, Verdana, Tahoma, sans;
     padding: 5px 15px;
     border-radius: 100px;
-    color: black;
+    color: white;
     padding-right: 20px;
-    background-color: white;
+    background-color: rgb(24, 26, 25);
     height: 50px;
 
 }
 
 
 .LoginInside:hover {
-    color: black;
+    color: white;
     transition: all .3s linear;
     -webkit-transition: all .3s linear;
     -moz-transition: all .3s linear;
-    background: aliceblue;
+    background: rgb(24, 26, 25);
 }

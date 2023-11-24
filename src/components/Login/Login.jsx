@@ -12,7 +12,7 @@ function Login(props){
         props.ChangePassword(PasswordRef.current.value)
     }
     
-    return <div className={styles.Login}>
+    return <div className={styles.LoginStyle}>
     <div> 
         <textarea className={styles.input} placeholder='Логин' value={props.inputLogin} ref={LoginRef} onChange={onChangeLogin}/>
     </div>

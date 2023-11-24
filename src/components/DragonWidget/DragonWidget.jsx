@@ -1,8 +1,11 @@
 import React from "react";
-import index from "./drakonwidget/index.html"
+import styles from "./DragonWidget.module.css"
 
 function DragonWidget(props) {
-    return <iframe dangerouslySetInnerHTML={{ __html: index }} />
+    return <div>
+        <iframe className={styles.site} src="http://localhost:8002/">
+        </iframe>
+    </div>
 }
 
 export default DragonWidget;

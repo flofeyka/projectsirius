@@ -2,27 +2,25 @@
     position: fixed;
     width: 100%;
     grid-area: h;
-    background-color: white;
-    box-shadow: 0 0 2px black;
-    display: inline-block;
-}
-
-.header img {
-    width: 15%;
-    height: 49px;
-    padding-left: 80px;
-}
-
-.header.dark-theme {
-    grid-area: h;
     background-color: rgb(24, 26, 27);
     box-shadow: 0 0 2px white;
     display: inline-block;
 }
 
+.header img {
+    width: 12%;
+    height: 50px;
+    padding-left: 80px;
+}
+
+.header.dark-theme {
+    grid-area: h;
+
+}
+
 .loging {
     position: absolute;
-    margin-left: 800px;
+    margin-left: 100px;
 }
 
 .logger {
@@ -36,18 +34,49 @@
     font-family: Roboto, Verdana, Tahoma, sans;
     padding: 5px 15px;
     border-radius: 100px;
-    color: black;
+    color: white;
     margin: 5px;
-    background-color: white;
+    background-color: rgb(24, 26, 27);
     height: 40px;
 
 }
 
 
 .logger:hover {
-    color: black;
+    color: white;
     transition: all .3s linear;
     -webkit-transition: all .3s linear;
     -moz-transition: all .3s linear;
-    background: aliceblue;
+    background: gray;
+}
+
+.Nav {
+    margin-left: 200px;
+}
+
+.Button {
+    border: none;
+    outline: none;
+    display: inline-block;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: Roboto, Verdana, Tahoma, sans;
+    padding: 5px 15px;
+    border-radius: 100px;
+    color: white;
+    margin: 5px;
+    background-color: rgb(24, 26, 27);
+    height: 40px;
+
+}
+
+
+.Button:hover {
+    color: white;
+    transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    background: gray;
 }

@@ -1,15 +1,17 @@
 table, td {
-    border: 2px solid black;
+    border: 2px solid white;
     border-collapse: collapse;
     min-width: 50px;
-
+    color: white;
 }
 
 .tables {
     padding: 15px;
+    
 }
 
 .TextArea {
+    color: white;
     margin: 20px;
 }
 
@@ -25,18 +27,28 @@ table, td {
     font-family: Roboto, Verdana, Tahoma, sans;
     padding: 5px 15px;
     border-radius: 100px;
-    color: black;
+    color: white;
     margin: 5px;
-    background-color: white;
+    background-color: rgb(23, 26, 27);
     height: 50px;
 
 }
 
 
 .activate:hover {
-    color: black;
+    color: white;
     transition: all .3s linear;
     -webkit-transition: all .3s linear;
     -moz-transition: all .3s linear;
-    background: aliceblue;
+    background: gray;
+}
+
+.DIV {
+    color: white
+}
+
+.tabler { 
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
 }

@@ -1,64 +1,97 @@
 import axios from "axios"
 
 const AddActionCreator = "ADD-ACTION"
-const ActionChangeCreator = "ACTION-CHANGE"
-const TimerChangeCreator = "TIMER-CHANGE"
-const CycleChangeCreator = "CYCLE-CHANGE"
-const LineChangeCreator = "LINE-CHANGE"
 const SetEnableCreator = "SET-ENABLE"
 
 let InitialState = {
     actions: [
     {
+        id: 0,
+        Doing: "Установить цвет",
+        Time: 5,
+        Color: "White",
+        rgbColor: {
+            rgbColor1: 255,
+            rgbColor2: 255,
+            rgbColor3: 255
+        }
+    },
+    {
         id: 1, 
-        Doing: "Налить", 
-        Cycle: 1,
-        Time: 1,
-        Line: 1
-    }, 
+        Doing: "Установить цвет",
+        Time: 5,
+        Color: "White",
+        rgbColor: {
+            rgbColor1: 255,
+            rgbColor2: 255,
+            rgbColor3: 255
+        }
+
+    },
     {
         id: 2,
-        Doing: "Повернуть",
-        Cycle: 2,
-        Time: 2,
-        Line: 2
-    }
-], 
-    TextArea: {
-        Action: "",
-        Timer: 1, 
-        Cycle: 1,
-        Line: 1
+        Doing: "Установить цвет",
+        Time: 5,
+        Color: "Blue",
+        rgbColor: {
+            rgbColor1: 0,
+            rgbColor2: 0,
+            rgbColor3: 255
+        }
     },
-    isEnabled: true
+    {
+        id: 3,
+        Doing: "Установить цвет",
+        Time: 5,
+        Color: "Blue",
+        rgbColor: {
+            rgbColor1: 0,
+            rgbColor2: 0,
+            rgbColor3: 255
+        }
+
+    },
+    {
+        id: 4,
+        Doing: "Установить цвет",
+        Time: 5,
+        Color: "Red",
+        rgbColor: {
+            rgbColor1: 255,
+            rgbColor2: 0,
+            rgbColor3: 0
+        }
+
+    },
+    {
+        id: 5,
+        Doing: "Установить цвет",
+        Time: 5,
+        Color: "Red",
+        rgbColor: {
+            rgbColor1: 255,
+            rgbColor2: 0,
+            rgbColor3: 0
+        }
+
+    }
+],
+    isEnabled: false
 }
 
 
 function TableReducer(state=InitialState, action) {
     switch(action.type){
         case AddActionCreator:
-        //     return {...state, actions: [...state.actions, {
-        //         id: Object.keys(state.actions).length + 1,
-        //         Doing: state.Action,
-        //         Cycle: state.Cycle,
-        //         Time: state.Timer,
-        //         Line: state.Line
-        //     }]
-        // }
-            return (
-                axios.get("http://10.10.201.184:8000/?commands=light(1,0,0)").then(Response => {
-                    return {...state, isEnabled: true}
-                })
-            )
-        case ActionChangeCreator:
-            return {...state, TextArea: {...state.TextArea, Action: action.string}};
-        case TimerChangeCreator:
-            return {...state, TextArea: {...state.TextArea, Timer: action.integer}};
-        case CycleChangeCreator:
-            return {...state, TextArea: {...state.TextArea, Cycle: action.integer}};
-        case LineChangeCreator:
-            return {...state, TextArea: {...state.TextArea, Line: action.integer}};
-        case SetEnableCreator: 
+            axios.get(`http://localhost:8001/?commands=clear`)
+            axios.get(`http://localhost:8001/?commands=pinmode(12,1)`)
+            state.actions.map(a => {
+                setInterval(() => {
+                    axios.get(`http://localhost:8001/?commands=set(${a.id},${a.rgbColor.rgbColor1},${a.rgbColor.rgbColor2},${a.rgbColor.rgbColor3})`)
+                }, 500);
+            }
+        )
+        case SetEnableCreator:
             return {...state, isEnabled: action.bool}
         default:
             return state;
@@ -66,10 +99,6 @@ function TableReducer(state=InitialState, action) {
 }
 
 export const AddAction = () => ({type: AddActionCreator})
-export const ActionChange = (string) => ({type: ActionChangeCreator, Action: string});
-export const TimerChange = (integer) => ({type: TimerChangeCreator, Timer: integer});
-export const CycleChange = (integer) => ({type: CycleChangeCreator, Cycle: integer});
-export const LineChange = (integer) => ({type: LineChangeCreator, Line: integer});
-export const SetEnable = (bool) => ({type: LineChangeCreator, isEnabled: bool})
+export const SetEnable = (bool) => ({isEnabled: bool})
 
 export default TableReducer;
